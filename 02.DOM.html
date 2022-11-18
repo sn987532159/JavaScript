@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1>Hello World~</h1>
+
+    <div class="box img-wrap">123</div>
+
+    <script>
+        document.querySelector('h1').innerHTML = 'Hi Jacky.';
+        document.querySelector('h1').style.color = 'red';
+        document.querySelector('h1').style.fontSize = '50px';
+        document.querySelector('.box.img-wrap').innerHTML = '456';
+        document.querySelector('.box.img-wrap').innerHTML = '<img src = "https://assets.hermes.com/is/image/hermesedito/P_169_GRIDS_LEATHER_CALVIDUO?name=P_169_GRIDS_LEATHER_CALVIDUO&end?fit=wrap,0&wid=923" style = "width:300px;">';
+        document.querySelector('.box.img-wrap').style.fontSize = '40px';
+        document.querySelector('.box.img-wrap').style.backgroundColor = 'green';
+    </script>
+</body>
+</html>

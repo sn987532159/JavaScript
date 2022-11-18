@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        const root = document.querySelector('#root');
+
+        img = `https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/%E6%98%9F%E4%B9%83%E7%8F%88%E7%90%B2%E5%BA%97-3-1605004302.jpg?crop=1xw:1xh;center,top&resize=980:*`;
+        name = `星乃珈琲店`;
+        detail = `完美復刻日本昭和年代的「星乃珈琲店HOSHINO COFFEE」，招牌「窯烤舒芙蕾熱蛋糕」，更被封為舒芙蕾控此生必吃的經典，熱熱的蛋糕體放上鮮奶油，Q彈之中每一口都是天然的濃濃奶香～`;
+
+        const myObj = {'shop1':{'name':name, 'img':img, 'detail':detail}};
+        console.log(Object.entries(myObj));
+
+        const myValue = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'};
+        console.log(myValue['key3']);
+        console.log(myValue.key2);
+
+        myValue['key4'] = 'value4';
+        console.log(myValue);
+
+        myValue.key3 = 'value3_revised';
+        console.log(myValue);
+
+        console.log(Object.keys(myValue));
+        console.log(Object.values(myValue));
+        console.log(Object.entries(myValue));
+        console.log(Object.entries(myValue).length);
+
+        const myValue2 = myValue;
+        myValue.key1 = "value1_revised";
+
+        console.log(myValue2);
+
+        const myValue3 = {...myValue}; // 要3個點點點
+        myValue3.key1 = "value1_revised2";
+        console.log(myValue3);
+
+        const myValue4 = {...myValue, key1:'new'};
+        console.log(myValue4);
+
+    </script>
+</body>
+</html>

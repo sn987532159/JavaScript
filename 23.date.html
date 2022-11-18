@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date</title>
+</head>
+<body>
+    <script>
+        const now = new Date();
+        console.log("now", now);
+
+        //  時間格式轉成 ISO8601 標準時間格式
+        console.log("now", now.toISOString());
+
+        // 字串格式轉 ISO8601 標準時間格式
+        const today_good = new Date("2022-03-23");
+        console.log("today", today_good.toISOString());
+
+        // 錯誤的字串格式轉 ISO8601 標準時間格式
+        const today_bad = new Date("2022/03/23");
+        console.log("today2", today_bad.toISOString());
+
+        // 或者是使用帶著時間的標準時間格式的字串比較安全
+        const dayTime = new Date("2022-03-23T19:29:07.597Z");
+        console.log("dayTime", dayTime.toISOString());
+
+        // 如果不轉 ISO8601 的話，會是 local 當地時間(GMT+8)
+        const dayTime2 = new Date("2020-02-02T13:00:00");
+        console.log("dayTime2", dayTime2);
+
+        //  new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'});
+        //  new Date().toLocaleString('en-US', {timeZone: 'America/New_York'});
+        // 或是指定時區的轉換 ISO8601 標準時間格式
+        console.log("now",now.toLocaleString("en-US",{timeZone:"Asia/Taipei" }))
+
+        //  取得本地時間與標準時區的時間差
+        console.log('diff time:', new Date().getTimezoneOffset() / 60);
+
+        // 取得各別時間參數
+        let d = new Date();
+        console.log('new Date, d:', d);
+        console.log(d.getFullYear());
+        console.log(d.getMonth()); //  from 0 to 11
+        console.log(d.getDate());
+        console.log(d.getDay());
+        console.log(d.getHours());
+        console.log(d.getMinutes());
+        console.log(d.getSeconds());
+        console.log(d.getMilliseconds());
+        console.log(d.getTime());
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex</title>
+    <style>
+        .calculator {
+           width: 400px;
+           padding: 10px;
+           background-color: #ccc;
+       }
+
+       .display {
+           min-height: 100px;
+           background-color: #eee;
+           margin: 10px;
+           font-size: 2rem;
+           word-break: break-all;
+       }
+       .btns {
+           display: flex;
+           flex-wrap: wrap;
+       }
+       .btn {
+           width: 80px;
+           height: 80px;
+           margin: 10px;
+           background-color: #fff;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+       .btn0 {
+           width: 180px;
+       }
+    </style>
+</head>
+<body>
+    <div class="root"></div>
+
+    <script>
+        const root = document.querySelector('.root');
+        root.innerHTML = `<div class="calculator">
+            <div class="display"></div>
+            <div class="btns">
+                <div class="btn">1</div>
+               <div class="btn">2</div>
+                <div class="btn">3</div>
+                <div class="btn">+</div>
+                <div class="btn">4</div>
+                <div class="btn">5</div>
+                <div class="btn">6</div>
+                <div class="btn">-</div>
+                <div class="btn">7</div>
+                <div class="btn">8</div>
+                <div class="btn">9</div>
+                <div class="btn">*</div>
+                <div class="btn btn0">0</div>
+                <div class="btn">=</div>
+                <div class="btn">/</div>
+            </div>
+        </div>`
+
+        const calc = document.querySelector('.calculator');
+        const display = document.querySelector('.display');
+ 
+        let inputAll = '';
+ 
+        calc.addEventListener('click', function (event) {
+            const eventTarget = event.target;
+            if (!event.target.classList.contains("btn")) return;
+ 
+            if (event.target.innerHTML === "=") {
+                try {
+                    if (eval(inputAll)) {
+                        display.innerHTML = `${inputAll} = ${eval(inputAll)}`;
+                        inputAll = '';
+                    }
+                }
+                catch { // 避免eror
+                    display.innerHTML = '';
+                    inputAll = '';
+                }
+            }
+            else {
+                inputAll += event.target.innerHTML;
+                display.innerHTML = inputAll;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex-3</title>
+</head>
+<body>
+    <div class="allMeal">
+        <!-- <div id="mainMeal">
+            <button>1號餐</button>
+            <button>2號餐</button>
+            <button>3號餐</button>
+        </div>
+        <div id="sideMeal">
+            <button>A</button>
+            <button>B</button>
+            <button>C</button>
+        </div> -->
+    </div>
+
+    <div id="result">
+        <p>主餐你點的是：<span id="mainMealResult"></span></p>
+        <p>副餐你點的是：<span id="sideMealResult"></span></p>
+        <p>總價格：<span id="totalPrice"></span></p>
+    </div>
+
+    <script>
+        const allMeal = document.querySelector('.allMeal')
+        const mainMeal = document.querySelector('#mainMeal');
+        const sideMeal = document.querySelector('#sideMeal');
+
+        const mainMealResult = document.querySelector('#mainMealResult');
+        const sideMealResult = document.querySelector('#sideMealResult');
+        const totalPrice = document.querySelector('#totalPrice');
+
+        let mainMealPrice = 0;
+        let sideMealPrice = 0;
+
+        fetch('http://127.0.0.1:5000/menu')
+            .then(r => r.json())
+            .then(data => {
+                console.log('data from server', data)
+                let allBtnDoms = '';
+                const dataKeys = Object.keys(data);
+
+                for (let i = 0; i < Object.keys(data).length; i++) {
+                    console.log('dataKeys:', dataKeys[i]);
+                    console.log('data:', data[dataKeys[i]]);
+                    console.log('price:', data[dataKeys[i]].price);
+                    if (+data[dataKeys[i]].price < 90){
+                        allBtnDoms += `<button>${Object.keys(data)[i]}</button>`
+                    }
+                }
+                allMeal.innerHTML = allBtnDoms;
+            
+                allMeal.addEventListener('click', function(e){
+                    console.log('event target:', e.target.innerText);
+                    console.log(parseInt(e.target.innerText));
+
+                    const meal = e.target.innerText;
+
+                    if (parseInt(e.target.innerText)){
+                        mainMealPrice = data[meal].price;
+                        mainMealName = data[meal].name;
+                        mainMealResult.innerHTML = `${mainMealName} 要 ${mainMealPrice}元`;
+                    }
+                    else{
+                        sideMealPrice = data[meal].price;
+                        sideMealName = data[meal].name;
+                        sideMealResult.innerHTML = `${sideMealName} 要 ${sideMealPrice}元`;
+                    }
+
+                    totalPrice.innerHTML = mainMealPrice + sideMealPrice;
+                })
+            })
+    </script>
+</body>
+</html>

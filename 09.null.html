@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>null</title>
+</head>
+<body>
+    <script>
+        let myData = null;
+        if (myData){
+            console.log('my data:', myData);
+        }
+        else{
+            console.log('I got no data.');
+        }
+
+        myData = 'Ok, I got some data from server now' // 數字0也是false
+        if (myData){
+            console.log('my data2:', myData);
+        }
+    </script>
+</body>
+</html>

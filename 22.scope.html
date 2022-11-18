@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scope</title>
+</head>
+<body>
+    <script>
+        var x = 10;
+        let y = 20;
+
+        function add (){
+            var x = 1;
+            y = 2; // 改到父層
+            return x + y; 
+        }
+        console.log("y1:", y);
+        console.log (add());
+        console.log("y2:", y);
+
+        function level1(name){
+            let x = 5
+            function level2(){
+                x += 1;
+                console.log(name, x);
+            }
+            return level2;
+        }
+
+        const result = level1('result');
+        console.log('result:', result);
+
+        result();
+        result();
+        result();
+
+        const result2 = level1('result2');
+
+        result2();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example</title>
+</head>
+<body>
+    <button class = "changeBtn">Change Btn</button>
+    <h1>Hello World</h1>
+    <div class="box" style="width:100px;height:100px;background:lightblue;"></div>
+
+    <script>
+        const changeBtn = document.querySelector('.changeBtn');
+        const h1 = document.querySelector('h1')
+        const box = document.querySelector('.box')
+
+        changeBtn.addEventListener('click', function(){
+            h1.style.color = 'red';
+            box.style.transition = '5s';
+            box.style.width = '500px';
+            box.style.height = '500px';
+        })
+    </script>
+</body>
+</html>

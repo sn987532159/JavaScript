@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex-2</title>
+</head>
+<body>
+    <div class="allMeal">
+        <!-- <button>1號餐</button>
+        <button>2號餐</button>
+        <button>3號餐</button>
+        <button>A</button>
+        <button>B</button>
+        <button>C</button> -->
+    </div>
+
+    <div id="result">
+        <p>主餐你點的是：<span id="mainMealResult"></span></p>
+        <p>副餐你點的是：<span id="sideMealResult"></span></p>
+        <p>總價格：<span id="totalPrice"></span></p>
+    </div>
+
+    <script>
+        const allMealMenu = { 
+            '1號餐': { 'name': '大麥克', 'price': 72 }, 
+            '2號餐': { 'name': '雙層牛肉吉事堡', 'price': 62 }, 
+            '3號餐': { 'name': '嫩煎雞腿堡', 'price': 82 }, 
+            'A': { 'name': '中薯+飲料', 'price': 55 }, 
+            'B': { 'name': '冰旋風+飲料', 'price': 85 }, 
+            'C': { 'name': '麥克雞塊+薯條+飲料', 'price': 100 } };
+
+        const mainMeal = document.querySelector('#mainMeal');
+        const sideMeal = document.querySelector('#sideMeal');
+        const mainMealResult = document.querySelector('#mainMealResult');
+        const sideMealResult = document.querySelector('#sideMealResult');
+        const totalPrice = document.querySelector('#totalPrice');
+
+        let mainMealPrice = 0;
+        let sideMealPrice = 0;
+
+        const allMeal = document.querySelector('.allMeal')
+
+        console.log(Object.keys(allMealMenu));
+
+        let allBtnDoms = ``;
+        
+        for (let i = 0; i< Object.keys(allMealMenu).length; i++){
+            allBtnDoms += `<button>${Object.keys(allMealMenu)[i]}</button>`
+        }
+
+        allMeal.innerHTML = allBtnDoms
+
+        allMeal.addEventListener('click', function(e){
+            console.log('event target:', e.target.innerText)
+            console.log(parseInt(e.target.innerText))
+
+            const meal = e.target.innerText
+            console.log(allMealMenu[meal])
+
+            if (parseInt(e.target.innerText)){
+                mainMealPrice = allMealMenu[meal].price
+                mainMealName = allMealMenu[meal].name
+                mainMealResult.innerHTML = `${mainMealName} 要 ${mainMealPrice}元`
+            }
+            else{
+                sideMealPrice = allMealMenu[meal].price
+                sideMealName = allMealMenu[meal].name
+                sideMealResult.innerHTML = `${sideMealName} 要 ${sideMealPrice}元`
+            }
+
+            totalPrice.innerHTML = mainMealPrice + sideMealPrice
+        })
+    </script>
+</body>
+</html>

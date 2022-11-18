@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class = "input1" type="text">
+    <select class = "operation" name="" id="">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input class = "input2" type="text">
+    <span class = "calculator">=</span>
+    <input class = "result" type="text" name="" id="">
+
+    <script>
+        const input1 = document.querySelector('.input1')
+        const operation = document.querySelector('.operation')
+        const input2 = document.querySelector('.input2')
+        const calculator = document.querySelector('.calculator')
+        const result = document.querySelector('.result')
+
+        calculator.addEventListener('click', function(){
+            console.log("input1:", input1.value);
+            console.log("input2:", input2.value);
+            console.log("reuslt:", +input1.value + +input2.value);
+            console.log("operation:", operation.value);
+
+            if(operation.value === "+"){
+                result.value = +input1.value + +input2.value
+            }
+            if(operation.value === "-"){
+                result.value = +input1.value - +input2.value
+            }
+            if(operation.value === "*"){
+                result.value = +input1.value * +input2.value
+            }
+            if(operation.value === "/"){
+                result.value = +input1.value / +input2.value
+            }           
+        })
+    </script>
+</body>
+</html>

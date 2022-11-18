@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        .wrap{
+            font-size: 0; /* removed margins*/
+        }
+
+        .card{
+            width: 25%;
+            display: inline-block;
+            padding: 0px 5px;
+            box-sizing: border-box; /* so that the card will not change the line*/
+        }
+
+        .img-wrap img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        h2{
+            text-align: center;
+            font-size: 20px;
+        }
+
+        p{
+            text-align: center;
+            font-size: 10px;
+        }
+
+        span{
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div id = "root"></div>
+    
+
+    <script>
+        const root = document.querySelector('#root');
+        const calvi = `https://assets.hermes.com/is/image/hermesedito/P_169_GRIDS_LEATHER_CALVIDUO?name=P_169_GRIDS_LEATHER_CALVIDUO&end?fit=wrap,0&wid=923`
+
+        root.innerHTML = `<div class="wrap">
+            <div class="card">
+                <div class="img-wrap">
+                    <img src = ${calvi}>
+                    <h2>MOUNTAINS</h2>
+                    <p>These are <span>snowy</span> mountains.</p>
+                </div>
+            </div>;
+            
+            <div class="card">
+                <div class="img-wrap">
+                    <img src = ${calvi}>
+                    <h2>MOUNTAINS</h2>
+                    <p>These are <span>snowy</span> mountains.</p>
+                </div>
+            </div>;
+
+            <div class="card">
+                <div class="img-wrap">
+                    <img src = ${calvi}>
+                    <h2>MOUNTAINS</h2>
+                    <p>These are <span>snowy</span> mountains.</p>
+                </div>
+            </div>;
+
+            <div class="card">
+                <div class="img-wrap">
+                    <img src = ${calvi}>
+                    <h2>MOUNTAINS</h2>
+                    <p>These are <span>snowy</span> mountains.</p>
+                </div>
+            </div>;
+
+        </div>`
+    </script>
+</body>
+</html>

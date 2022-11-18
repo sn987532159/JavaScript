@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+    <script>
+        const myArray = ['value1', 'value2', 'value3'];
+
+        myArray.push('value4')
+        myArray[myArray.length] = 'value5'
+
+        console.log('value1:', myArray[0]);
+        console.log('value2:', myArray[1]);
+        console.log('value3:', myArray[2]);
+
+        console.log('陣列：', myArray);
+        console.log('陣列長度：', myArray.length);
+
+        myArray[0] = 'My new value1'
+
+        for(let i = 0 ; i<myArray.length ; i++){
+            console.log('now value:', myArray[i]);
+
+        }
+
+        const myArray2 = [3,5,1,2]
+        console.log('myArray2:', myArray2.sort());
+
+        const result = myArray2.splice(1, 2, 6, 7, 8, 9)
+        console.log('myArray2:', result);
+        console.log('myArray2:', myArray2);
+    </script>
+</body>
+</html>

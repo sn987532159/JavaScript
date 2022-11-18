@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEvent</title>
+</head>
+<body>
+    <button class="loginBtn">Login</button>
+    <div id="myBox"></div>
+
+    <script>
+        const loginBtn = document.querySelector('.loginBtn')
+        loginBtn.addEventListener('click', function(){
+            alert('login btn clicked')
+        }
+        )
+
+        loginBtn.addEventListener('click', function(){
+            document.querySelector('#myBox').innerHTML = '<img src = "https://assets.hermes.com/is/image/hermesedito/P_169_GRIDS_LEATHER_CALVIDUO?name=P_169_GRIDS_LEATHER_CALVIDUO&end?fit=wrap,0&wid=923" style = "width:300px;">';
+        }
+        )
+
+    </script>
+</body>
+</html>
